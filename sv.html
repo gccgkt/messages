@@ -1,19 +1,55 @@
-<!DOCTYPE DYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blank Page</title>
+    <title>Styled Page</title>
+    
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f9f9f9;
+            
+            /* Center all content vertically and horizontally */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+            gap: 30px; /* Space between the two iframes */
+            padding: 20px;
+        }
+        
+        .iframe-wrapper {
+            width: 90%;       /* Make them take up 90% of the screen */
+            max-width: 800px; /* But no wider than 800px */
+            height: 600px;    /* A fixed height for both */
+            
+            /* Visual styling */
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
 </head>
 <body>
-  <div><iframe src="https://www.yeschat.ai/i/gpts-2OTolb1Scc-Sanskrit-Vidwan" width="800" height="500" style="max-width: 100%;"></iframe> </div>
-    <div><iframe
-  src="https://chat.openai.com/g/guru-omka-sanskrit-tutor"
-  width="100%"
-  height="700"
-  style="border: none;"
-  allow="microphone; camera; clipboard-write;"
-></iframe></div>
+
+    <div class="iframe-wrapper">
+        <iframe src="https://www.yeschat.ai/i/gpts-2OTolb1Scc-Sanskrit-Vidwan" 
+                allow="microphone; camera; clipboard-write;">
+        </iframe>
+    </div>
     
-    </body>
+    <div class="iframe-wrapper">
+        <iframe src="https://chat.openai.com/g/guru-omka-sanskrit-tutor" 
+                allow="microphone; camera; clipboard-write;">
+        </iframe>
+    </div>
+
+</body>
 </html>
