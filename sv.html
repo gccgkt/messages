@@ -6,49 +6,104 @@
     <title>Styled Page</title>
     
     <style>
+        /* Basic page setup */
         body {
-            font-family: sans-serif;
-            background-color: #f9f9f9;
-            
-            /* Center all content vertically and horizontally */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            
-            gap: 30px; /* Space between the two iframes */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
             padding: 20px;
+            background-color: #f4f4f9;
         }
         
-        .iframe-wrapper {
-            width: 90%;       /* Make them take up 90% of the screen */
-            max-width: 800px; /* But no wider than 800px */
-            height: 600px;    /* A fixed height for both */
+        /* This container will hold our items */
+        .container {
+            display: flex;       
+            flex-wrap: wrap;     
+            gap: 20px;           
+        }
+        
+        /* Shared style for both the iframe and the link box */
+        .item-wrapper {
+            flex: 1; /* Each item shares the space */
+            min-width: 400px; /* They will stack if space is less than ~820px */
+            height: 700px;
             
             /* Visual styling */
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            overflow: hidden;
+            overflow: hidden; /* Keeps rounded corners */
         }
         
-        iframe {
+        /* Specific to the iframe */
+        .item-wrapper iframe {
             width: 100%;
             height: 100%;
             border: none;
         }
+        
+        /* Specific to the link box */
+        .link-box {
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+            box-sizing: border-box; /* Ensures padding doesn't break layout */
+        }
+        
+        .link-box h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-top: 0;
+        }
+        
+        .link-box p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .link-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #10a37f; /* OpenAI's green */
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: background-color 0.2s;
+        }
+        
+        .link-button:hover {
+            background-color: #0d8c6c;
+        }
+
     </style>
 </head>
 <body>
 
-    <div class="iframe-wrapper">
-        <iframe src="https://www.yeschat.ai/i/gpts-2OTolb1Scc-Sanskrit-Vidwan" 
-                allow="microphone; camera; clipboard-write;">
-        </iframe>
-    </div>
-    
-    <div class="iframe-wrapper">
-        <iframe src="https://chat.openai.com/g/guru-omka-sanskrit-tutor" 
-                allow="microphone; camera; clipboard-write;">
-        </iframe>
+    <div class="container">
+        
+        <div class="item-wrapper">
+            <iframe src="https://www.yeschat.ai/i/gpts-2OTolb1Scc-Sanskrit-Vidwan" 
+                    allow="microphone; camera; clipboard-write;">
+            </iframe>
+        </div>
+        
+        <div class="item-wrapper link-box">
+            <h3>Guru Omka Sanskrit Tutor</h3>
+            <p>This chat must be opened in a new tab to work correctly.</p>
+            
+            <a href="https://chat.openai.com/g/guru-omka-sanskrit-tutor" 
+               class="link-button" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                Open Sanskrit Tutor
+            </a>
+        </div>
+        
     </div>
 
 </body>
